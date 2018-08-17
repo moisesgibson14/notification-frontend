@@ -11,6 +11,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { ListNotificationComponent } from './component/list-notification/list-notification.component';
 import { ViewNotificationComponent } from './component/view-notification/view-notification.component'
 
+import { APP_ROUTES } from 'src/app/app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { ViewNotificationComponent } from './component/view-notification/view-no
     BrowserModule,
     //material design
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    APP_ROUTES
   ],
   providers: [],
   bootstrap: [AppComponent]

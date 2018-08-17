@@ -3,7 +3,7 @@
     <div class="dropdown">
       <a id="dLabel" href="" class="text-white" role="button" data-toggle="dropdown" data-target="#">
         <i class="fas fa-bell"></i>
-        <span> (3)</span>
+        <span class="badge badge-light">4</span>
       </a>
       <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
         <div class="notification-heading">
@@ -11,17 +11,19 @@
         </div>
         <li class="divider"></li>
         <div class="notifications-wrapper">
-          <a class="content" href="#">
+          <a class="content" routerLink="view-notification/A932POE9" href="#">
             <div class="notification-item">
-              <h4 class="item-title">Evaluation Deadline 1 · day ago</h4>
-              <p class="item-info">Marketing 101, Video Assignment</p>
+              <h4 class="item-title">Retiro/Compra - hace 8 hrs</h4>
+              <p class="item-info">Ejecutivo M.N 190 Monto $400.00 el ...</p>
             </div>
           </a>
           <a class="content" href="#">
-            <div class="notification-item">
-              <h4 class="item-title">Evaluation Deadline 1 · day ago</h4>
-              <p class="item-info">Marketing 101, Video Assignment</p>
-            </div>
+            <a href=""  routerLink="view-notification/3345PO2F">
+              <div class="notification-item">
+                <h4 class="item-title">Deposito Trajeta - Lunes 15:28</h4>
+                <p class="item-info">Monto $3,000,00 el 13/08/18 , En opera...</p>
+              </div>
+            </a>
           </a>
           <a class="content" href="#">
             <div class="notification-item">
@@ -38,7 +40,12 @@
         </div>
         <li class="divider"></li>
         <div class="notification-footer">
-          <h5 class="menu-title">Ver todo <i class="fas fa-angle-right"></i></h5>
+          <h5 class="menu-title"> 
+              <a routerLink="list-notifications">
+                Ver todo 
+              <i class="fas fa-angle-right"></i>
+              </a>
+          </h5>
         </div>
       </ul>
     </div>
