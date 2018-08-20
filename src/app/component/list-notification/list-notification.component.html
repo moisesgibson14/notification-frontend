@@ -1,25 +1,41 @@
 <div class="container">
+  <br>
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
       <span>
-        Recientes <i class="fas fa-clock"></i>
+        <i class="fas fa-clock"></i> Recientes
       </span>
       <span>
-        all
+        Todo
       </span>
     </div>
     <div class="card-body">
-      <a href="" routerLink="/view-notification/93287U8">
-        <h5 class="card-title">Retiro / Compra Tarjeta M.N</h5>
-        <p class="card-text">395 Monto $500.00 el 17/08/18 10:25:00 PM. Auto 12066.</p>
-      </a>
+      <ul class="notifications" *ngFor="let notification of notifications">
+        <div class="row  justify-content-around" >
+          <div class="col-10">
+            <li class="notification">
+              <a href="" style="text-decoration:none;color:inherit " routerLink="/view-notification/233323">
+                <div class="media">
+                  <div class="media-body">
+                    <strong class="notification-title">{{notification.title}}</strong>
+                    <p class="notification-desc">{{notification.description}}</p>
+                    <div class="notification-meta">
+                      <small class="timestamp">{{notification.date}}</small>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <div class="btn-group">
+                <span >
+                  <i class=" icon-ellipsis fas fa-ellipsis-v"></i>
+                </span>
+              </div>
+          </div>
+        </div>
+        <hr>
+      </ul>
     </div>
-    <hr>
-    <div class="card-body">
-      <a href="" routerLink="/view-notification/JKDSF223">
-        <h5 class="card-title">Retiro / Compra Cheques M.N</h5>
-        <p class="card-text">499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995.</p>
-      </a>
-      </div>
   </div>
-</div>

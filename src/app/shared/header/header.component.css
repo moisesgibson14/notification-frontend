@@ -1,3 +1,14 @@
+a{
+  text-decoration: none;
+  color:inherit
+}
+.content:hover{
+  color : red;
+}
+.notification-item:hover{
+  color : red;
+}
+
 .dropdown {
     display:inline-block;
     margin-left:20px;
@@ -6,11 +17,20 @@
 
 .color-principal{
 background-color: #EC0000;
-margin-bottom: 1rem;
+margin-bottom: .5rem;
 }
 .glyphicon-bell {   
     font-size:1.0rem;
   }
+
+  @media (max-width: 576px) { 
+    .notifications{
+      min-width: 300px !important;
+      right: 0px;
+      left: auto;
+    }
+   }
+
 .notifications {
    min-width:320px; 
    right: 0px;
