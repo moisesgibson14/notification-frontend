@@ -29,6 +29,16 @@ export class ListNotificationComponent implements OnInit {
       description:'499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
       date:'08. 08. 2018, 11:00'
     },
+    {
+      title:'Retiro / Compra Cheques M.N',
+      description:'499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+      date:'08. 08. 2018, 11:00'
+    },
+    {
+      title:'Retiro / Compra Cheques M.N',
+      description:'499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+      date:'08. 08. 2018, 11:00'
+    }
   ]
 
   constructor() {
