@@ -9,6 +9,13 @@
     background-color: #f1f1f1;
 }
 
+.hover-red:hover{
+    color:#EC0000;
+}
+.hover-success:hover{
+    color: green;
+}
+
 @media (min-width: 768px) { 
     .icon-ellipsis{
         display: none;

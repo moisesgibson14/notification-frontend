@@ -9,6 +9,9 @@ a{
   color : red;
 }
 
+.title-header{
+  color:white;
+}
 .dropdown {
     display:inline-block;
     margin-left:20px;
@@ -17,7 +20,7 @@ a{
 
 .color-principal{
 background-color: #EC0000;
-margin-bottom: .5rem;
+
 }
 .glyphicon-bell {   
     font-size:1.0rem;
