@@ -7,6 +7,9 @@
 .p4{
     padding-top: 4em;
 }
+.m1{
+    margin: 1rem;
+}
 
 .notification{
     list-style: none;
@@ -19,13 +22,28 @@
 .hover-red:hover{
     color:#EC0000;
 }
+.color-red{
+    background-color: #Ec0000;
+    color: white;
+}
 .hover-success:hover{
     color: green;
+}
+
+.btn-notifications-desk{
+    display: none;
 }
 
 @media (min-width: 768px) { 
     .icon-ellipsis{
         display: none;
+    }
+
+    .panel-card{
+        margin: 4rem !important;
+    }
+    .btn-notifications-desk{
+        display: block;
     }
  }
 
@@ -66,3 +84,84 @@
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+.show-more {
+    display: block;
+    border: 2px solid #Ec0000;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
+  .arrows {
+    position: absolute;
+    display: block;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  .show-more-button {
+    margin-top: 20px;
+    display: block;
+    text-decoration: none;
+    color: #Ec0000;
+    text-align: center;
+  }
+  .show-more-button:hover .arrow {
+    top: 70px;
+    transition: top 0.3s ease-in-out;
+  }
+  .show-more-button:hover .arrow-hidden {
+    top: 12px;
+    transition: top 0.3s ease-in-out;
+  }
+  .show-more-button .arrow,
+  .show-more-button .arrow-hidden {
+    width: 2px;
+    height: 25px;
+    background: #Ec0000;
+    display: inline-block;
+    position: absolute;
+    top: 12px;
+    left: 24px;
+    transition: top 0.3s ease-in-out;
+  }
+  .show-more-button .arrow:before,
+  .show-more-button .arrow-hidden:before {
+    content: "";
+    width: 2px;
+    height: 15px;
+    display: block;
+    background: #Ec0000;
+    position: absolute;
+    transform: rotate(45deg);
+    bottom: 0;
+    right: -6px;
+    bottom: -1px;
+  }
+  .show-more-button .arrow:after,
+  .show-more-button .arrow-hidden:after {
+    content: "";
+    width: 2px;
+    height: 15px;
+    display: block;
+    background: #Ec0000;
+    position: absolute;
+    transform: rotate(135deg);
+    bottom: -1px;
+    left: -6px;
+  }
+  .show-more-button .arrow-hidden {
+    top: -80px;
+  }
+  .show-more-text {
+    margin-top: 10px;
+    display: block;
+    font-weight: 600;
+  }
+  
