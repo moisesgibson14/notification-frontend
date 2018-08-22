@@ -1,6 +1,9 @@
 .notifications{
     padding-left: 0px;
 }
+.notifications:hover{
+    background-color:  #F5F4F4;
+}
 .principal{
     z-index: -2 !important;
 }
@@ -16,7 +19,7 @@
     margin-left: 0px;
 }
 .notification:hover{
-    background-color: #f1f1f1;
+    /* background-color:  #DEEDF2; */
 }
 
 .hover-red:hover{
@@ -25,6 +28,9 @@
 .color-red{
     background-color: #Ec0000;
     color: white;
+}
+.color-principal{
+    color: #Ec0000;
 }
 .hover-success:hover{
     color: green;
@@ -44,6 +50,9 @@
     }
     .btn-notifications-desk{
         display: block;
+    }
+    .showMoreItems{
+        display: none !important;
     }
  }
 
@@ -87,7 +96,7 @@
 
 .show-more {
     display: block;
-    border: 2px solid #Ec0000;
+    border: 2px solid  #C3DEE7 ;
     width: 50px;
     height: 50px;
     text-align: center;
@@ -109,7 +118,7 @@
     margin-top: 20px;
     display: block;
     text-decoration: none;
-    color: #Ec0000;
+    color:  #C3DEE7 ;
     text-align: center;
   }
   .show-more-button:hover .arrow {
@@ -124,7 +133,7 @@
   .show-more-button .arrow-hidden {
     width: 2px;
     height: 25px;
-    background: #Ec0000;
+    background:  #C3DEE7 ;
     display: inline-block;
     position: absolute;
     top: 12px;
@@ -137,7 +146,7 @@
     width: 2px;
     height: 15px;
     display: block;
-    background: #Ec0000;
+    background:  #C3DEE7 ;
     position: absolute;
     transform: rotate(45deg);
     bottom: 0;
@@ -150,7 +159,7 @@
     width: 2px;
     height: 15px;
     display: block;
-    background: #Ec0000;
+    background:  #C3DEE7 ;
     position: absolute;
     transform: rotate(135deg);
     bottom: -1px;
@@ -164,4 +173,72 @@
     display: block;
     font-weight: 600;
   }
+
+  .filter {
+    float: left;
+    /* width: 75%; */
+    padding-left: 2.5em;
+  }
+  .filter .m {
+    color: #5d7592;
+    position: absolute;
+    margin-left: -1.25em;
+  }
+  .filter input {
+    width: 100%;
+    vertical-align: top;
+    height: 2em;
+    border: none;
+    background: #f9fcfe;
+    font-size: 16px;
+    font-weight: 300;
+    color: #5d7592;
+    outline: none;
+    padding: 0 0.5em;
+  }
+
+  .message-no-notifications{
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      justify-content: center !important;
+  }
+  .borderNone{
+      background-color: red !important;
+      border: 0px !important;
+  }
+  .color-menu-item{
+      color: #6F7779
+  }
+  
+  #custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
   
