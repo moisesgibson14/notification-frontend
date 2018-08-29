@@ -13,6 +13,8 @@ import { ViewNotificationComponent } from './component/view-notification/view-no
 
 import { APP_ROUTES } from 'src/app/app.routes';
 
+import { HttpClientModule } from  '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { APP_ROUTES } from 'src/app/app.routes';
     //material design
     BrowserAnimationsModule,
     MaterialModule,
-    APP_ROUTES
+    APP_ROUTES,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

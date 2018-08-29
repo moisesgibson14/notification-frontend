@@ -14,85 +14,113 @@ export class ListNotificationComponent implements OnInit {
   public cantShowItem: any
   public sumCantItem: any;
   public showMoreItemOption: boolean;
-  public showItemMessage : boolean
-  public notifications = [
-    {
-      title: 'Retiro / Compra Tarjeta M.N',
-      description: '395 Monto $500.00 el 17/08/18 10:25:00 PM. Auto 12066...',
-      date: '17. 08. 2018, 15:00'
-    },
-    {
-      title: 'Retiro / Compra Cheques M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '13. 08. 2018, 11:00'
-    },
-    {
-      title: 'Deposito / Cuenta  M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '11. 08. 2018, 11:00'
-    },
-    {
-      title: 'Retiro / Compra Cheques M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '08. 08. 2018, 11:00'
-    },
-    {
-      title: 'Retiro / Compra Cheques M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '08. 08. 2018, 11:00'
-    },
-    {
-      title: 'Retiro / Compra Cheques M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '08. 08. 2018, 11:00'
-    },
-    {
-      title: 'Retiro / Compra Cheques M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '13. 08. 2018, 11:00'
-    },
-    {
-      title: 'Deposito / Cuenta  M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '11. 08. 2018, 11:00'
-    },
-    {
-      title: 'Retiro / Compra Cheques M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '13. 08. 2018, 11:00'
-    },
-    {
-      title: 'Deposito / Cuenta  M.N',
-      description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
-      date: '11. 08. 2018, 11:00'
-    }
-  ]
-  constructor(public _notificationService : ListNotificationsService) {
+  public showItemMessage: boolean
+  public notifications:any
+  // public notifications = [
+  //   {
+  //     title: 'Retiro / Compra Tarjeta M.N',
+  //     description: '395 Monto $500.00 el 17/08/18 10:25:00 PM. Auto 12066...',
+  //     date: '12:45 PM',
+  //     multimedia: '',
+  //     viewed: 'true'
+  //   },
+  //   {
+  //     title: 'Credito / Beneficios',
+  //     description: 'El Crédito Campaña está pensado para hacer frente a las necesidades de...',
+  //     date: '09:32 AM',
+  //     multimedia: 'https://d3uir0eo9qeeuq.cloudfront.net/blog/wp-content/uploads/2014/11/comptesuperrendibilitat.jpg',
+  //     viewed: 'false'
+  //   },
+  //   {
+  //     title: 'Deposito / Cuenta  M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '21/08/18, 9:03 AM',
+  //     multimedia: '',
+  //     viewed: 'true'
+  //   },
+  //   {
+  //     title: 'Retiro / Compra Cheques M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '10/08/18, 9:03 AM',
+  //     multimedia: 'https://www.marketingdirecto.com/wp-content/uploads/2018/03/Santader-Seguros-51.png',
+  //     viewed: 'false'
+  //   },
+  //   {
+  //     title: 'Retiro / Compra Cheques M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '10/08/18, 9:03 AM',
+  //     multimedia: '',
+  //     viewed: 'false'
+  //   },
+  //   {
+  //     title: 'Retiro / Compra Cheques M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '10/08/18, 9:03 AM',
+  //     multimedia: 'http://www.tucapital.es/wp-files/2016/cuenta-mini-santander.jpg',
+  //     viewed: 'true'
+  //   },
+  //   {
+  //     title: 'Retiro / Compra Cheques M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '10/08/18, 9:03 AM',
+  //     multimedia: '',
+  //     viewed: 'true'
+  //   },
+  //   {
+  //     title: 'Deposito / Cuenta  M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '10/08/18, 9:03 AM',
+  //     multimedia: '',
+  //     viewed: 'true'
+  //   },
+  //   {
+  //     title: 'Retiro / Compra Cheques M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '10/08/18, 9:03 AM',
+  //     multimedia: '',
+  //     viewed: 'true'
+  //   },
+  //   {
+  //     title: 'Deposito / Cuenta  M.N',
+  //     description: '499 Monto $3,300.00 el 17/08/18 09:28:00 AM Auto 88995...',
+  //     date: '10/08/18, 9:03 AM',
+  //     multimedia: '',
+  //     viewed: 'true'
+  //   }
+  // ]
+  constructor(public _notificationService: ListNotificationsService) {
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
     })
+
   }
   ngOnInit() {
     this.showMoreItemOption = false
     this.showItemMessage = false
     this.sumCantItem = 0;
-    this.cantShowItem = 4;
+    this.cantShowItem = 9;
+    this.notifications = []
     this.getAllNotificatons()
+    this.selectItem(0)
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
   }
   getAllNotificatons() {
-    this._notificationService.getNotifications().subscribe(notification =>{
+    this._notificationService.getNotifications().subscribe(notification => {
       let not = notification
+      this.notifications = notification
       console.log(not);
+      if (this.notifications) {
+        this.showMoreItemOption = true
+        this.showItemMessage = true;
+      } else {
+  
+      }
     })
-    if (this.notifications) {
-      this.showMoreItemOption = true
-      this.showItemMessage = true;
-    }else{
-
-    }
-    console.log(this.notifications);
-    
+    // console.log(this.notifications);
   }
+
   deleteNotification() {
     Swal({
       title: '¿Estas seguro?',
@@ -104,11 +132,11 @@ export class ListNotificationComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         console.log('si lo borro');
-        
+
       }
     })
   }
-  archiverNotification(){
+  archiverNotification() {
     Swal(
       'Good job!',
       'You clicked the button!',
@@ -121,5 +149,12 @@ export class ListNotificationComponent implements OnInit {
     if (this.cantShowItem >= this.notifications.length) {
       this.showMoreItemOption = false
     }
+  }
+
+  selectItem(value){
+    console.log('entro');
+    localStorage.setItem('option',value);
+    let option = localStorage.getItem('option')
+    console.log(option);    
   }
 }

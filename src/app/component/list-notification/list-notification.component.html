@@ -1,104 +1,212 @@
-<div class="principal p4  panel-card">
-  <div class="card" [ngStyle]="{'borderNone': !notificaciones}">
-    <div style="background-color: #DEEDF2 !important" class="card-header d-flex justify-content-between align-items-center">
-      <div class="row justify-content-between align-items-center">
-        <div class="col-4">
-          <span>
-            <i class="fas fa-clock color-principal"></i> Recientes
-          </span>
-        </div>
-        <div class="col-8">
-          <div id="custom-search-input">
-            <div class="input-group col-md-12">
-              <input type="text" class="form-control input-lg" placeholder="Filtro" />
-              <span class="input-group-btn">
-                <button class="btn btn-info btn-lg" type="button">
-                  <i class="fas fa-search color-principal"></i>
-                </button>
+<!-- https://codepen.io/martinb/pen/XdYNzX
+https://codepen.io/ChristienGuy/pen/yJLKrB
+https://codepen.io/deammer/pen/NxmEbe
+https://codepen.io/Lance-Jernigan/pen/yJbXOK
+https://codepen.io/sathishlxg/pen/qEyMxj
+https://codepen.io/mrspok407/pen/ONKKOP -->
+<div class="wrap-principal">
+  <div class="principal p4  panel-card container-principal">
+    <!-- <div class="card" [ngStyle]="{'borderNone': !notificaciones}">
+      <div style="background-color: #DEEDF2 !important" class="card-header d-flex justify-content-between align-items-center">
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            <div class="col-4 col-md-6 p-0">
+              <span>
+                <i class="fas fa-clock color-principal"></i> Recientes
               </span>
             </div>
+            <div class="col-8 col-md-6">
+              <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                  <input type="text" class="form-control input-lg" placeholder="Filtro" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button">
+                      <i class="fas fa-search color-principal"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <!-- <span class="input">
-            <input type="text">
-            <i class="fas fa-search color-principal"></i>
-          </span>
-          <span>
-          </span> -->
-        <!-- <input type="text" ng-model="searchies" ng-change="onQueryChange(searchies)" class="form-control" placeholder="Filter"> -->
       </div>
-    </div>
-    <div class="card-body" *ngIf="notifications">
-      <ul class="notifications" *ngFor="let notification of notifications | slice:0:cantShowItem">
-        <div class="row  justify-content-around">
-          <div class="col-10 col-sm-10 col-md-8">
-            <li class="notification">
-              <a href="" style="text-decoration:none;color:inherit " routerLink="/view-notification/233323">
-                <div class="media">
-                  <div class="media-body">
-                    <strong class="notification-title">{{notification.title}}</strong>
-                    <footer class="blockquote-footer">{{notification.description}}</footer>
-                    <div class="notification-meta">
-                      <small class="timestamp"><i class="far fa-calendar-alt color-principal"></i> {{notification.date}}</small>
+      <div class="card-body" *ngIf="notifications">
+        <ul class="notifications" *ngFor="let notification of notifications | slice:0:cantShowItem">
+          <div class="row  justify-content-around">
+            <div class="col-10 col-sm-10 col-md-8">
+              <li class="notification">
+                <a href="" style="text-decoration:none;color:inherit " routerLink="/view-notification/233323">
+                  <div class="media">
+                    <div class="media-body">
+                      <strong class="notification-title">{{notification.title}}</strong>
+                      <footer class="blockquote-footer">{{notification.description}}</footer>
+                      <div class="notification-meta">
+                        <small class="timestamp"><i class="far fa-calendar-alt color-principal"></i> {{notification.date}}</small>
+                      </div>
                     </div>
                   </div>
+                </a>
+              </li>
+            </div>
+            <div class="col-2 col-sm-2 col-md-4 d-flex align-items-center">
+              <div class="btn-group icon-ellipsis">
+                <div class="btn-group dropleft" data-toggle="tooltip" data-placement="top" title="Ver opciones">
+                  <span data-toggle="dropdown" style="cursor:pointer" aria-haspopup="true" aria-expanded="false">
+                    <h5 class="color-menu-item">
+                      <i class="fas fa-ellipsis-v"></i>
+                    </h5>
+                  </span>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item hover-red" (click)="deleteNotification()"><i class="far fa-trash-alt color-principal"></i>
+                      Eliminar
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item hover-success" (click)="archiverNotification()" href=""><i class="fas fa-archive color-principal"></i>
+                      Archivar</a>
+                  </div>
                 </div>
-              </a>
-            </li>
-          </div>
-          <div class="col-2 col-sm-2 col-md-4 d-flex align-items-center">
-            <div class="btn-group icon-ellipsis">
-              <div class="btn-group dropleft" data-toggle="tooltip" data-placement="top" title="Ver opciones">
-                <span data-toggle="dropdown" style="cursor:pointer" aria-haspopup="true" aria-expanded="false">
-                  <h5 class="color-menu-item">
-                    <i class="fas fa-ellipsis-v"></i>
-                  </h5>
-                </span>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item hover-red" (click)="deleteNotification()"><i class="far fa-trash-alt color-principal"></i>
-                    Eliminar
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item hover-success" (click)="archiverNotification()" href=""><i class="fas fa-archive color-principal"></i>
-                    Archivar</a>
+              </div>
+              <div class="btn-group btn-notifications-desk">
+                <div class="d-flex justify-content-center">
+                  <button type="button" data-toggle="tooltip" data-placement="top" title="Toque para archivar" class="btn btn-light mr-1"><i
+                      class="fas fa-archive color-principal"></i> Archivar</button>
+                  <button type="button" data-toggle="tooltip" data-placement="top" title="Toque para eliminar" class="btn btn-light mr-1"><i
+                      class="far fa-trash-alt color-principal"></i> Eliminar</button>
                 </div>
               </div>
             </div>
-            <div class="btn-group btn-notifications-desk">
-              <div class="d-flex justify-content-center">
-                <button type="button" data-toggle="tooltip" data-placement="top" title="Toque para archivar" class="btn btn-light mr-1"><i
-                    class="fas fa-archive color-principal"></i> Archivar</button>
-                <button type="button" data-toggle="tooltip" data-placement="top" title="Toque para eliminar" class="btn btn-light mr-1"><i
-                    class="far fa-trash-alt color-principal"></i> Eliminar</button>
+          </div>
+          <hr style="background-color:  #9BC3D3 ">
+        </ul>
+        <a *ngIf="showMoreItemOption" class="show-more-button showMoreItems" (click)="showMore(4)" id="show_more">
+          <span class="show-more green">
+            <span class="arrows">
+              <span class="arrow"></span>
+              <span class="arrow-hidden"></span>
+            </span>
+          </span>
+          <span class="show-more-text">Mostrar mas</span>
+        </a>
+      </div>
+      <div class="card-body" *ngIf="!notifications">
+        <div class="row justify-content-center">
+          <span class="message-no-notifications">
+            <div class="row justify-content-center">
+              <h1>
+                <i class="far fa-bell"></i>
+              </h1>
+            </div>
+            <strong class="justify-content-center">
+              No hay notificaciones nuevas
+            </strong>
+          </span>
+        </div>
+      </div>
+    </div> -->
+    <label *ngIf="notifications.length > 0" class="m-1 pl-3" for="">
+     <strong> Recientes</strong> 
+    </label>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Launch demo modal
+    </button> -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="">
+      <div class="pt-1" *ngIf="notifications">
+        <div class="card item-notification mb-1" *ngFor="let notification of notifications | slice:0:cantShowItem">
+          <!-- <div class="card-body" [ngClass]="{'viwed-notification': notification.viewed == 'true' }"> -->
+          <div class="card-body" [ngClass]="{'viwed-notification': notification.status ==  '0' }">
+            <div class="media-body">
+              <div class="row">
+                <div class="col-9 col-md-6 align-items-center">
+                  <a href="" (click)="selectItem(1)" style="text-decoration:none;color:inherit " routerLink="/view-notification/233323" >
+                    <strong class="notification-title ">
+                      <i *ngIf="notification.status ==  '1'" class="color-principal fas fa-check"></i>
+                      <!-- <i *ngIf="notification.status == 'false'  || '0'" class="color-sec fas fa-circle"></i> -->
+                      {{notification.title}}
+                    </strong>
+                    <footer class=" blockquote-footer p-1">{{notification.description}}</footer>
+                    <!-- <div class="card" *ngIf="notification.multimedia">
+                      <div class="card-body container-multimedia">
+                        <div class="row">
+                          <div class="col-8">
+                            <div class="d-flex justify-content-center">
+                              <img class="img-responsive" width="100%" height="100%" *ngIf="notification.multimedia" src="{{notification.multimedia}}"
+                                alt="">
+                            </div>
+                          </div>
+                          <div class="col-4">
+                            <small>Text description</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+                  </a>
+                </div>
+                <div class="col-3 col-md-6">
+                  <div class="d-flex justify-content-end">
+                    <div class="btn-group icon-ellipsis">
+                      <div class="btn-group dropleft">
+                        <span class="drop-ellipsis" data-toggle="dropdown" style="cursor:pointer" aria-haspopup="true" aria-expanded="false">
+                          <i class="fas fa-ellipsis-h"></i>
+                        </span>
+                        <div class="dropdown-menu z-index-modified">
+                          <a class="dropdown-item hover-red" (click)="deleteNotification()"><i class="far fa-trash-alt color-principal"></i>
+                            Eliminar
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item hover-success" (click)="archiverNotification()" href=""><i class="fas fa-archive color-principal"></i>
+                            Archivar</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end  align-items-end">
+                    <small class="timestamp"> {{notification.date}}
+                    </small>
+                  </div>
+                  <div class="btn-group   btn-notifications-desk">
+                    <div class="d-flex justify-content-end">
+                      <button type="button" data-toggle="tooltip" data-placement="top" title="Toque para archivar" class="btn btn-light mr-1"><i
+                          class="fas fa-archive color-principal"></i> Archivar</button>
+                      <button type="button" data-toggle="tooltip" data-placement="top" title="Toque para eliminar" class="btn btn-light mr-1"><i
+                          class="far fa-trash-alt color-principal"></i> Eliminar</button>
+                    </div>
+                  </div>
+                  <br>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <hr style="background-color:  #9BC3D3 ">
-      </ul>
-      <a *ngIf="showMoreItemOption" class="show-more-button showMoreItems" (click)="showMore(4)" id="show_more">
-        <span class="show-more green">
-          <span class="arrows">
-            <span class="arrow"></span>
-            <span class="arrow-hidden"></span>
-          </span>
-        </span>
-        <span class="show-more-text">Mostrar mas</span>
-      </a>
-    </div>
-    <div class="card-body" *ngIf="!notifications">
-      <div class="row justify-content-center">
-        <span class="message-no-notifications">
-          <div class="row justify-content-center">
-            <h1>
-              <i class="far fa-bell"></i>
-            </h1>
-          </div>
-          <strong class="justify-content-center">
-            No hay notificaciones nuevas
-          </strong>
-        </span>
+      </div>
+      <div *ngIf="notifications.length == 0" class="pt-5">
+        <div class="d-flex justify-content-center">
+          <h1>
+            <i class="fas fa-bell"></i>
+          </h1>
+        </div><br>
+        <div class="d-flex justify-content-center">
+          <label class="not-notifications">No hay notificaciones nuevas</label>
+        </div>
       </div>
     </div>
   </div>

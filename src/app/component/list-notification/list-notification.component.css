@@ -1,3 +1,10 @@
+
+.wrap-principal{
+    height: 100%;
+    background-color: #f5f5f5
+}
+
+
 .notifications{
     padding-left: 0px;
 }
@@ -6,6 +13,7 @@
 }
 .principal{
     z-index: -2 !important;
+    height: 100% !important;
 }
 .p4{
     padding-top: 4em;
@@ -32,6 +40,14 @@
 .color-principal{
     color: #Ec0000;
 }
+/* .container-principal{
+    background-color: #ebebebb8;
+    min-height: 1000%;
+    max-width: 100%;
+} */
+.color-sec{
+    color: #3366FF;
+}
 .hover-success:hover{
     color: green;
 }
@@ -39,6 +55,18 @@
 .btn-notifications-desk{
     display: none;
 }
+.notification-title{
+    font-size: 92% !important;
+}
+.z-index-modified{
+    z-index: 1;
+}
+
+@media (max-width: 350px) {
+    .timestamp{
+        font-size: 70%;
+    }
+} 
 
 @media (min-width: 768px) { 
     .icon-ellipsis{
@@ -54,15 +82,18 @@
     .showMoreItems{
         display: none !important;
     }
+    .notification-title{
+        font-size: 100% !important;
+    }
  }
 
 
 .principal{
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+    -webkit-animation: fadein 0.7s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.7s; /* Firefox < 16 */
+        -ms-animation: fadein 0.7s; /* Internet Explorer */
+         -o-animation: fadein 0.7s; /* Opera < 12.1 */
+            animation: fadein 0.7s;
 }
 
 @keyframes fadein {
@@ -241,4 +272,54 @@
 #custom-search-input .glyphicon-search{
     font-size: 23px;
 }
-  
+
+
+
+
+
+
+
+
+
+
+
+
+.item-notification{
+    /* margin-bottom: 0.5rem;
+    cursor: pointer;
+    opacity: 0.4; */
+    /* background: Lighten(#c8e3f5, 8%); */
+    /* background-color:  #c8e3f5; */
+    /* opacity: 0.8; */
+
+
+    /* background: #ebf5fb; */
+    /* opacity: 0.7; */
+    cursor: pointer;
+    border-radius: 0px;
+}
+.item-notification:hover{
+    opacity: 0.8;
+    /* background-color: #C3DEE7   */
+}
+.viwed-notification{
+    border-top: .2rem solid #1BB3BC;
+    box-shadow: .5px 2px 5px gray;
+}
+.drop-ellipsis{
+    padding: .5rem;
+}
+.multimedia-notification{
+    max-width: 100%;
+    width: 100%
+}
+.container-multimedia{
+    padding: 0.3rem !important;
+}
+.card-body{
+    /* padding: .3rem !important;  */
+}
+
+.not-notifications{
+    font-family: 'Oxygen', sans-serif;
+}

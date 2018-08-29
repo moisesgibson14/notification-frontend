@@ -1,9 +1,18 @@
 <div class="navbar color-principal">
-   <a> <li class="nav-item title-header d-flex align-items-center p-2">
-      <strong> Notificaciones </strong>
-    </li> </a>
-    <a>
-        <!-- <li class="nav-item">
+  <a>
+    <li class="nav-item title-header d-flex align-items-center p-2">
+      <strong *ngIf="optionButton == '0'">
+        Notificaciones
+      </strong>
+      <strong *ngIf="optionButton == '1'">
+        <a href="" (click)="selectItem(0)">
+          <i class="fas fa-angle-left"></i> Volver
+        </a>
+      </strong>
+    </li>
+  </a>
+  <a>
+    <!-- <li class="nav-item">
             <div class="dropdown">
               <a id="dLabel" href="" class="text-white" role="button" data-toggle="dropdown" data-target="#">
                 <i class="fas fa-bell"></i>
@@ -54,6 +63,5 @@
               </ul>
             </div>
         </li> -->
-    </a>
+  </a>
 </div>
-

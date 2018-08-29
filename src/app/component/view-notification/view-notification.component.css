@@ -3,12 +3,12 @@
     
 }
 
-.container{
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+.container-wrap{
+    -webkit-animation: fadein 0.7s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.7s; /* Firefox < 16 */
+        -ms-animation: fadein 0.7s; /* Internet Explorer */
+         -o-animation: fadein 0.7s; /* Opera < 12.1 */
+            animation: fadein 0.7s;
 }
 
 @keyframes fadein {
@@ -46,4 +46,11 @@
 }
 a:link{
     text-decoration: none
+}
+
+.color-wrap{
+    background-color: #f1f1f1 !important;
+}
+.card-view-notification{
+    box-shadow: .5px 2px 5px gray;
 }
