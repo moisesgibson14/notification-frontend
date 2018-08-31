@@ -61,6 +61,9 @@
 .z-index-modified{
     z-index: 1;
 }
+.view-active{
+    display: none;
+}
 
 @media (max-width: 350px) {
     .timestamp{
@@ -68,7 +71,10 @@
     }
 } 
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
+    .view-active{
+        display: block;
+    } 
     .icon-ellipsis{
         display: none;
     }
@@ -76,8 +82,20 @@
     .panel-card{
         margin: 4rem !important;
     }
+    .recent-info-mobile{
+        display: none;
+    }
+    .panel-card{
+        margin: 1rem !important
+    }
+    .hr-vertical{
+        border:         none;
+        border-left:    .3px solid hsla(200, 10%, 50%,100);
+        /* height:         100vh; */
+        width:          1px;     
+    }
     .btn-notifications-desk{
-        display: block;
+        /* display: block; */
     }
     .showMoreItems{
         display: none !important;

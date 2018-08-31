@@ -1,6 +1,6 @@
 <div class="container-wrap color-wrap">
   <!-- <div class="card pt-5 card-view-notification"> -->
-  <div class="card">
+  <div class="card" *ngIf="notification">
     <div class="card-body">
 
       <div class="row p4">
@@ -17,14 +17,15 @@
       <hr>
       <div class="row">
         <div class="col 12">
-          <h5><strong> Retiro / Compra Tarjeta M.N </strong></h5>
+          <h5><strong>{{notification.title}} </strong></h5>
+          <label for="">{{notification.subTitle}}</label>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col 12">
-          <label>Monto $3,000.00 el 13/08/18 12:38:00 PM. En operaciones con cheque, valida tu saldo antes de realizar cualquier
-            operación
+          <label>
+            {{notification.description}}
           </label>
         </div>
       </div>

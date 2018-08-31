@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
 import { ListNotificationsService } from '../../services/list-notifications.service';
+import { BackListService } from '../../services/back-list.service';
 
 
 declare var $: any;
@@ -88,7 +89,7 @@ export class ListNotificationComponent implements OnInit {
   //     viewed: 'true'
   //   }
   // ]
-  constructor(public _notificationService: ListNotificationsService) {
+  constructor(public _notificationService: ListNotificationsService, public _backList:BackListService) {
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
     })
@@ -101,7 +102,6 @@ export class ListNotificationComponent implements OnInit {
     this.cantShowItem = 9;
     this.notifications = []
     this.getAllNotificatons()
-    this.selectItem(0)
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
     })
@@ -110,7 +110,6 @@ export class ListNotificationComponent implements OnInit {
     this._notificationService.getNotifications().subscribe(notification => {
       let not = notification
       this.notifications = notification
-      console.log(not);
       if (this.notifications) {
         this.showMoreItemOption = true
         this.showItemMessage = true;
@@ -118,7 +117,6 @@ export class ListNotificationComponent implements OnInit {
   
       }
     })
-    // console.log(this.notifications);
   }
 
   deleteNotification() {
@@ -131,8 +129,6 @@ export class ListNotificationComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        console.log('si lo borro');
-
       }
     })
   }
@@ -151,10 +147,12 @@ export class ListNotificationComponent implements OnInit {
     }
   }
 
-  selectItem(value){
-    console.log('entro');
-    localStorage.setItem('option',value);
-    let option = localStorage.getItem('option')
-    console.log(option);    
+  updateNotificationView(dataNotification){
+    console.log(dataNotification);
+    dataNotification.status = true
+    this._notificationService.updateViewNotification(dataNotification).subscribe(response =>{
+      console.log(response);
+      
+    })
   }
 }
