@@ -55,7 +55,15 @@ export class ListNotificationsService {
       .pipe(
         catchError(this.handleError)
       );
+  }
 
+  deleteNotification(dataNotification): Observable<any>{
+    console.log('entro ,' , dataNotification);
+    
+    return this.httpClient.put<any>(`${this.API_URL}/customer/`,dataNotification,httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
   }
 
 

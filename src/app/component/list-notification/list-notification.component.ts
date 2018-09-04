@@ -16,7 +16,8 @@ export class ListNotificationComponent implements OnInit {
   public sumCantItem: any;
   public showMoreItemOption: boolean;
   public showItemMessage: boolean
-  public notifications:any
+  public notifications: any
+  public idEndNotification: any
   // public notifications = [
   //   {
   //     title: 'Retiro / Compra Tarjeta M.N',
@@ -89,9 +90,20 @@ export class ListNotificationComponent implements OnInit {
   //     viewed: 'true'
   //   }
   // ]
-  constructor(public _notificationService: ListNotificationsService, public _backList:BackListService) {
+  constructor(public _notificationService: ListNotificationsService, public _backList: BackListService) {
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
+    })
+    $(document).ready(function () {
+      $(window).resize(function () {
+        var viewportWidth = $(window).width();
+        if (viewportWidth < 600) {
+          $("#card-principal").removeClass("card");
+        }
+        if (viewportWidth > 601) {
+          $("#card-principal").addClass("card")
+        }
+      });
     })
 
   }
@@ -105,21 +117,33 @@ export class ListNotificationComponent implements OnInit {
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
     })
+
+
   }
   getAllNotificatons() {
+    this.notifications = [];
     this._notificationService.getNotifications().subscribe(notification => {
-      let not = notification
-      this.notifications = notification
-      if (this.notifications) {
+      notification.forEach(filter => {
+        if(filter.action_notification !== 'deleted'){
+          this.notifications.push(filter)
+        }
+      });
+      // this.notifications = notification
+      console.log(this.notifications);
+      
+      if (this.notifications.length > 0) {
+
         this.showMoreItemOption = true
         this.showItemMessage = true;
-      } else {
-  
+        var getUltimo = this.notifications[this.notifications.length -1]
+        this.idEndNotification = getUltimo.id
+        console.log(this.idEndNotification);
+        
       }
     })
   }
 
-  deleteNotification() {
+  deleteNotification(notification) {
     Swal({
       title: '¿Estas seguro?',
       text: 'Esta notificación ya no se mostrará!',
@@ -129,6 +153,15 @@ export class ListNotificationComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
+        console.log(notification);
+        notification.action_notification = 'deleted'
+        this._notificationService.deleteNotification(notification).subscribe( deleteNot =>{
+          console.log('se borro la notificacion');
+          
+          console.log(deleteNot);
+          
+        })
+        this.getAllNotificatons()
       }
     })
   }
@@ -147,12 +180,12 @@ export class ListNotificationComponent implements OnInit {
     }
   }
 
-  updateNotificationView(dataNotification){
+  updateNotificationView(dataNotification) {
     console.log(dataNotification);
     dataNotification.status = true
-    this._notificationService.updateViewNotification(dataNotification).subscribe(response =>{
+    this._notificationService.updateViewNotification(dataNotification).subscribe(response => {
       console.log(response);
-      
+
     })
   }
 }

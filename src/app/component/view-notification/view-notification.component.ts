@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ListNotificationsService } from '../../services/list-notifications.service';
 
@@ -9,6 +9,7 @@ import { ListNotificationsService } from '../../services/list-notifications.serv
 })
 export class ViewNotificationComponent implements OnInit {
 
+  @Input() idViewNotification:number;
   public idNotificationSelected : any
   public notification : any;
   constructor(private _route: ActivatedRoute, public _serviceNotification : ListNotificationsService) {
@@ -16,6 +17,11 @@ export class ViewNotificationComponent implements OnInit {
    }
 
   ngOnInit() {
+
+    if(!this.idNotificationSelected){
+      console.log(this.idViewNotification);
+      this.idNotificationSelected = this.idViewNotification
+    }
     this.notification = []
     console.log(this.idNotificationSelected);
     this.getNotificationById(this.idNotificationSelected)
