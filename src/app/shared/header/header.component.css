@@ -17,7 +17,6 @@ a{
 .notification-item:hover{
   color : red;
 }
-
 .title-header{
   color:white;
   padding-left: .5rem;
@@ -27,7 +26,6 @@ a{
     margin-left:20px;
     padding:10px;
   }
-
 .color-principal{
 background-color: #EC0000;
 }

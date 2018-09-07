@@ -1,7 +1,21 @@
 
-.wrap-principal{
-    height: 100%;
-    background-color: #f5f5f5
+.option-notification{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 4em;
+    top: 40%;
+    /* padding-bottom: 50px;
+    padding-left: 80px; */
+}
+.circle-new-notification{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 2;
+    right: .8em;
+    top: 10%;
 }
 
 .notifications{
@@ -36,7 +50,7 @@
     background-color: #Ec0000;
     color: white;
 }
-.color-principal{
+.color-principal-btn{
     color: #Ec0000;
 }
 /* .container-principal{
@@ -45,7 +59,7 @@
     max-width: 100%;
 } */
 .color-sec{
-    color: #3366FF;
+    color: #1BB3BC;
 }
 .hover-success:hover{
     color: green;
@@ -74,7 +88,18 @@
     display: none !important;
 }
 
+.email-view{
+    display: none !important;
+}
+
 @media (min-width: 768px) {
+    .scroll{
+        overflow: scroll;
+        height: 400px;
+    }
+    .email-view{
+        display: block !important;
+    }
     .title-desktop{
         display: block !important;
     }
@@ -94,12 +119,6 @@
     .panel-card{
         margin: 1rem !important
     }
-    .hr-vertical{
-        /* border:         none; */
-        border-left:    .1px solid;
-        /* height:         100vh; */
-        width:          1px;     
-    }
     .btn-notifications-desk{
         /* display: block; */
     }
@@ -117,7 +136,17 @@
         -ms-animation: fadein 0.7s; /* Internet Explorer */
          -o-animation: fadein 0.7s; /* Opera < 12.1 */
             animation: fadein 0.7s;
+            animation-name: moveLeft
 }
+
+@keyframes moveLeft {
+    from {
+      transform: translateX(100px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 
 @keyframes fadein {
     from { opacity: 0; }
@@ -284,8 +313,9 @@
     /* background-color: #C3DEE7   */
 }
 .viwed-notification{
-    border-top: .2rem solid #1BB3BC;
-    box-shadow: .5px 2px 5px gray;
+    /* border-right: .4rem solid #1BB3BC !important; */
+    /* box-shadow: .5px 2px 5px gray; */
+    /* background-color: whi    te; */
 }
 .drop-ellipsis{
     padding: .5rem;
@@ -303,4 +333,177 @@
 
 .not-notifications{
     font-family: 'Oxygen', sans-serif;
+}
+
+
+/* Header */
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 1px 3px 5px gray;
+  }
+  a{
+    text-decoration: none;
+    color:inherit
+  }
+  .color-principal{
+    background-color: #EC0000;
+    }
+    .title-header{
+        color:white;
+        padding-left: .5rem;
+      }
+
+/* Search */
+
+.search-icon{
+    color: white;
+    list-style: none;
+    padding-right: 1rem;
+    cursor: pointer;
+}
+
+
+
+
+
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:600,400,300,200);
+/* https://codepen.io/iamtyce/pen/MaLGpe */
+.header-primary__lead {
+  margin: 0;
+  padding: 0;
+  color: #4f5c8f;
+  font-size: 1em;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.email-wrap {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .email-wrap {
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-direction: row;
+  }
+}
+
+.email-list {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  background: #F7FAFF;
+}
+@media only screen and (min-width: 768px) {
+  .email-list {
+    /* width: 50%; */
+  }
+}
+
+.email-item {
+  -webkit-transition: background 0.15s;
+  -moz-transition: background 0.15s;
+  transition: background 0.15s;
+  padding: 17.5px 35px;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+.email-item:hover {
+  background: #e3e6f0;
+}
+
+.email-item--active {
+  background: #e3e6f0;
+}
+
+.email-item__from {
+  margin: 0;
+  padding: 0 0 .4em;
+  float: left;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.email-item__from__highlight {
+  margin-left: 3px;
+  color: #4f5c8f;
+}
+
+.email-item__datetime {
+  font-size: 0.9em;
+  float: right;
+  font-weight: 400;
+  color: #ccc;
+}
+
+.email-item__subject {
+  margin: 0;
+  padding: .2em 0;
+  clear: both;
+}
+
+.email-item__intro {
+  margin: 0;
+  padding: 0;
+  color: #555;
+}
+
+.email-view {
+  padding: 17.5px 35px;
+  font-size: 0.8em;
+  background: #ffffff;
+  box-shadow: -6px 0 9px -4px rgba(0, 0, 0, 0.15);
+  line-height: 1.5;
+}
+@media only screen and (min-width: 768px) {
+  .email-view {
+    width: 50%;
+  }
 }

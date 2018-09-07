@@ -6,6 +6,15 @@
     .padding{
         padding-top: 0 !important
     }
+    .navbar{
+        display: none;
+    }
+    .padding-mobile{
+        padding-top: 0rem !important;
+    }
+}
+.padding-mobile{
+    padding-top: 4rem;
 }
 .padding{
     padding-top: 4rem
@@ -22,7 +31,18 @@
         -ms-animation: fadein 0.7s; /* Internet Explorer */
          -o-animation: fadein 0.7s; /* Opera < 12.1 */
             animation: fadein 0.7s;
+            /* animation-name: moveRight; */
 }
+
+/* @keyframes moveRight {
+    from {
+      transform: translateX(-100px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  } */
+  
 
 @keyframes fadein {
     from { opacity: 0; }
@@ -67,3 +87,30 @@ a:link{
 .card-view-notification{
     box-shadow: .5px 2px 5px gray;
 }
+
+
+
+
+
+/* Header */
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 1px 3px 5px gray;
+  }
+  a{
+    text-decoration: none;
+    color:inherit
+  }
+  .color-principal{
+    background-color: #EC0000;
+    }
+    .title-header{
+        color:white;
+        padding-left: .5rem;
+      }

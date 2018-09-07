@@ -23,13 +23,13 @@ export class ViewNotificationComponent implements OnInit {
       this.idNotificationSelected = this.idViewNotification
     }
     this.notification = []
-    console.log(this.idNotificationSelected);
+    // console.log(this.idNotificationSelected);
     this.getNotificationById(this.idNotificationSelected)
   }
 
   getNotificationById(idNot){
     this._serviceNotification.getNotificationById(idNot).subscribe(notification =>{
-      console.log(notification);
+      // console.log(notification);
       this.notification = notification
     })
   }
