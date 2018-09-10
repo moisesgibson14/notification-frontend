@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -15,15 +16,21 @@ import { APP_ROUTES } from 'src/app/app.routes';
 
 import { HttpClientModule } from  '@angular/common/http';
 
+import { FilterPipe} from './filter.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ListNotificationComponent,
-    ViewNotificationComponent
+    ViewNotificationComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    Ng2SearchPipeModule,
     //material design
     BrowserAnimationsModule,
     MaterialModule,

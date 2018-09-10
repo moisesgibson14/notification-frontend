@@ -22,7 +22,7 @@ export class ListNotificationComponent implements OnInit {
   public idEndNotification: any
   public optionWindow: boolean;
   public mobWidth: any;
-  public visible_notification : boolean;
+  public visible_notification: boolean;
   public notification = [
     {
       title: 'Retiro / Compra Tarjeta M.N',
@@ -95,21 +95,19 @@ export class ListNotificationComponent implements OnInit {
       viewed: 'true'
     }
   ]
-  constructor(private _router: Router,public _notificationService: ListNotificationsService, public _backList: BackListService) {
-    $( () => {
+  constructor(private _router: Router, public _notificationService: ListNotificationsService, public _backList: BackListService) {
+    $(() => {
       $('[data-toggle="tooltip"]').tooltip()
     })
     $(document).ready(() => {
-      var option =  $(window).width();
+      var option = $(window).width();
       this.mobWidth = option
       $(window).on('resize', () => {
         var viewportWidth = $(window).width();
         if (viewportWidth < 600) {
-          $("#card-principal").removeClass("card");
           this.mobWidth = viewportWidth;
         }
         if (viewportWidth > 601) {
-          $("#card-principal").addClass("card")
           this.mobWidth = viewportWidth;
         }
       });
@@ -126,16 +124,20 @@ export class ListNotificationComponent implements OnInit {
 
     this.getAllNotificatons()
 
+    if (this.mobWidth < 720) {
+      $("#card-principal").removeClass("card");
+    } else {
+      $("#card-principal").addClass("card")
+    }
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
     })
     $(document).ready(function () {
       $(".btn-hide-search").hide();
       $("#search-filter").hide();
-
       $(".btn-show-search").click(function () {
-        $("#search-filter").show("slow", function () {
-        });
+        $('#inputSearch').focus();
+        $("#search-filter").show();
         $(".btn-hide-search").show();
         $(".btn-show-search").hide();
       });
@@ -151,12 +153,12 @@ export class ListNotificationComponent implements OnInit {
     this.visible_notification = false
     this.idEndNotification = null
     if (this.mobWidth > 720) {
-      setTimeout(()=>{
+      setTimeout(() => {
         this.idEndNotification = idNotification
         this.visible_notification = true;
       })
     } else {
-      this._router.navigate(['view-notification/',idNotification]) 
+      this._router.navigate(['view-notification/', idNotification])
     }
   }
   getAllNotificatons() {
@@ -210,10 +212,8 @@ export class ListNotificationComponent implements OnInit {
   }
 
   updateNotificationView(dataNotification) {
-    console.log(dataNotification);
     dataNotification.status = true
     this._notificationService.updateViewNotification(dataNotification).subscribe(response => {
-      console.log(response);
     })
   }
 }
