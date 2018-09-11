@@ -120,7 +120,7 @@ a:link{
       .card {
         z-index: 1;
         overflow: hidden;
-        box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0.1em .5em rgba(0, 0, 0, 0.4);
         border-radius: 0.5em;
         transition: top, left, width, height, border-radius;
         transition-duration: 0.5s;
@@ -144,11 +144,6 @@ a:link{
         flex-direction: column;
         justify-content: flex-end;
         background-size: cover;
-      }
-      @media (min-width: 80em) {
-        .card__header {
-          height: 30em;
-        }
       }
       
       .card__caption {

@@ -18,6 +18,7 @@ import { HttpClientModule } from  '@angular/common/http';
 
 import { FilterPipe} from './filter.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { LoaderComponent } from './component/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HeaderComponent,
     ListNotificationComponent,
     ViewNotificationComponent,
-    FilterPipe
+    FilterPipe,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

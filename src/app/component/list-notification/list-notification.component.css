@@ -195,8 +195,8 @@ a{
     cursor: pointer;
 }
 
-@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
-@import url(https://fonts.googleapis.com/css?family=Work+Sans:600,400,300,200);
+/* @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:600,400,300,200); */
 /* https://codepen.io/iamtyce/pen/MaLGpe */
 .header-primary__lead {
   margin: 0;
@@ -211,7 +211,7 @@ a{
   width: 100%;
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -244,7 +244,7 @@ a{
 .email-list {
   display: -webkit-box;
   display: -moz-box;
-  display: box;
+  display: flex;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;

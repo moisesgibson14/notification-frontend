@@ -30,7 +30,7 @@ export class ListNotificationsService {
 
 
   // API_URL = 'http://localhost:8080'
-  API_URL = 'https://14aafa92.ngrok.io'
+  API_URL = 'https://66d19073.ngrok.io'
   constructor(private httpClient: HttpClient) {
 
   }

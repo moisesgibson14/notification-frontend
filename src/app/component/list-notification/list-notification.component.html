@@ -13,6 +13,10 @@
     </strong>
   </li>
 </div>
+<div *ngIf="!notificationExist">
+  <app-loader></app-loader>
+</div>
+
 <div class="principal p4 panel-card container-principal">
   <!-- Search -->
   <div class="input-group mb-3" id="search-filter">
@@ -61,8 +65,8 @@
         <div class="email-list">
           <div class="email-item mb-1 card" *ngFor="let notification of notifications | filter : searchText | slice:0:cantShowItem">
             <div [ngClass]="{'viwed-notification': notification.status ==  '0' }">
-                <!-- selectOptionView(notification.id) -->
-              <a  (click)="updateNotificationView(notification);selectOptionView(notification.id)" style="text-decoration:none;color:inherit ">
+              <!-- selectOptionView(notification.id) -->
+              <a (click)="updateNotificationView(notification);selectOptionView(notification.id)" style="text-decoration:none;color:inherit ">
                 <h4 class="email-item__from"> {{notification.title}}
                 </h4><span class="email-item__datetime"> {{notification.send_date | date : 'short'}}</span>
               </a>
@@ -80,7 +84,7 @@
                       <h5>
                         <i class="icon-option fas fa-ellipsis-v"></i>
                       </h5>
-                      </span>
+                    </span>
                     <div class="dropdown-menu z-index-modified" style="z-index:1000;">
                       <a class="dropdown-item hover-red" (click)="deleteNotification(notification)"><i class="far fa-trash-alt color-principal-btn"></i>
                         ELIMINAR
@@ -101,6 +105,11 @@
                 <small>
                   <i *ngIf="notification.status ==  '0'" class="color-sec fas fa-circle"></i>
                 </small>
+              </div>
+              <div *ngIf="notification.multimedia">
+                <div class="text-center">
+                  <img src="{{notification.multimedia}}" class="responsive img-thumbnail" alt="..." width="100" height="100">
+                </div>
               </div>
             </div>
           </div>

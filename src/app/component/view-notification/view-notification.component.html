@@ -62,8 +62,14 @@
     {{notification.description}}
   </div>
 </div> -->
-<div class="padding-mobile container-wrap">
-  <p class="date"> {{notification.send_date | date:'medium'}}</p>
+<div *ngIf="notificationView">
+  <app-loader></app-loader>
+</div>
+<div class="padding-mobile container-wrap" *ngIf="!notificationView">
+  <div class="d-flex justify-content-end">
+    <span><i class="far fa-clock"></i></span>
+    <p class="date"> {{notification.send_date | date:'medium'}}</p>
+  </div>
   <h4 class="headline">{{notification.title}}</h4>
   <div class="grid">
     <div class="width-12/12 width-7/12@m">
@@ -72,16 +78,16 @@
           <div class="card__caption">
             <h2 class="card__title">{{notification.subTitle}}</h2>
             <h3 class="card__sub-title">{{notification.description}}</h3>
+            <div *ngIf="notification.multimedia">
+              <img src="{{notification.multimedia}}" class="responsive img-thumbnail" alt="">
+            </div>
           </div>
         </div>
         <div class="card__body">
           <div class="card__text">
-           
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="zoomer-overlay"></div>

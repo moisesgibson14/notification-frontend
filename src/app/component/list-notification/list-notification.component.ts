@@ -23,6 +23,7 @@ export class ListNotificationComponent implements OnInit {
   public optionWindow: boolean;
   public mobWidth: any;
   public visible_notification: boolean;
+  public notificationExist:boolean;
   public notification = [
     {
       title: 'Retiro / Compra Tarjeta M.N',
@@ -114,6 +115,7 @@ export class ListNotificationComponent implements OnInit {
     })
   }
   ngOnInit() {
+    this.notificationExist = true;
     this.optionWindow = false;
     this.showMoreItemOption = false
     this.showItemMessage = false
@@ -163,16 +165,20 @@ export class ListNotificationComponent implements OnInit {
   }
   getAllNotificatons() {
     this.notifications = [];
+    console.log('entro');
+    
     this._notificationService.getNotifications().subscribe(notification => {
+      this.notificationExist = true;
       notification.forEach(filter => {
         if (filter.action_notification !== 'deleted') {
           this.notifications.push(filter)
+          console.log(this.notifications);
         }
       });
       if (this.notifications.length > 0) {
         this.showMoreItemOption = true
         this.showItemMessage = true;
-        var getUltimo = this.notifications[this.notifications.length - 1]
+        var getUltimo = this.notifications[0]
         this.idEndNotification = getUltimo.id
         this.visible_notification = true;
       }
